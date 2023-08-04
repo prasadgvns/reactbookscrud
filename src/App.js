@@ -1,43 +1,61 @@
 import { useState } from "react";
-import CreateBook from "./components/CreateBook";
-import BookList from "./components/BookList";
+
+import ExpenseFormHandler from "./components/ExpenseFormHandler";
+import ExpenseList from "./components/ExpenseList";
 
 function App() {
-  const [books, setBooks] = useState([]);
+  const [expenses, setExpenses] = useState([]);
+  const [enableEdit, setEnableEdit] = useState(false);
+  const [expenseToEdit, setExpenseToEdit] = useState({});
 
-  const createBook = (title) => {
-    const updatedBook = [
-      ...books,
-      { id: Math.round(Math.random() * 9999), title },
-    ];
+  const createExpense = (expense) => {
+    const updatedExpense = [...expenses, expense];
 
-    setBooks(updatedBook);
+    setExpenses(updatedExpense);
   };
 
-  const deleteBookById = (id) => {
-    const updatedBooks = books.filter((book, index) => {
-      return book.id !== id;
+  const deleteExpenseById = (id) => {
+    const updatedExpense = expenses.filter((expense) => {
+      return expense.id !== id;
     });
 
-    setBooks(updatedBooks);
+    setExpenses(updatedExpense);
   };
 
-  const editBookById = (id, title) => {
-    const updatedBooks = books.map((book) => {
-      if (book.id === id) {
-        return { ...book, title };
+  const getExpenseById = (id) => {
+    setEnableEdit(true);
+    const expense = expenses.find((expense) => {
+      return expense.id === id;
+    });
+    setExpenseToEdit({ ...expense });
+  };
+
+  const editExpense = (expense) => {
+    const updatedExpense = expenses.map((ex) => {
+      if (expense.id === ex.id) {
+        return { ...ex, ...expense };
       }
-
-      return book;
+      return ex;
     });
 
-    setBooks(updatedBooks);
+    setExpenses(updatedExpense);
   };
 
   return (
     <div className="container">
-      <CreateBook onCreate={createBook} />
-      <BookList books={books} onDelete={deleteBookById} onEdit={editBookById} />
+      <ExpenseFormHandler
+        onCreate={createExpense}
+        enableEdit={enableEdit}
+        setEnableEdit={setEnableEdit}
+        expenseToEdit={expenseToEdit}
+        editExpense={editExpense}
+      />
+      <ExpenseList
+        expenses={expenses}
+        enableEdit={enableEdit}
+        onDelete={deleteExpenseById}
+        onSelect={getExpenseById}
+      />
     </div>
   );
 }
