@@ -1,0 +1,36 @@
+# Get All Expenses
+GET http://localhost:3001/expenses HTTP/1.1
+Content-Type: application/json
+
+###
+
+POST http://localhost:3001/expenses HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "Electricity Bill",
+    "inputDate": "2024-08-01",
+    "description": "Electricity bill of aug",
+    "amount": 4300,
+    "account": "HDFC",
+    "paymentMode": "Debit Card"
+}
+
+###
+
+PUT http://localhost:3001/expenses/1 HTTP/1.1
+Content-Type: application/json
+
+{
+    "title": "House Rent1",
+    "inputDate": "2024-08-04",
+    "description": "House rent of aug 23",
+    "amount": 18000,
+    "account": "ICICI",
+    "paymentMode": "Online"
+}
+
+###
+
+DELETE http://localhost:3001/expenses/1 HTTP/1.1
+Content-Type: application/json

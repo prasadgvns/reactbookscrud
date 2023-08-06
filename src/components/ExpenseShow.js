@@ -12,9 +12,19 @@ function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
     onSelect(id);
   };
 
+  let cardBodyColor;
+
+  if (account === "SBI") {
+    cardBodyColor = "#fdf5e6";
+  } else if (account === "BOB") {
+    cardBodyColor = "#aaf0d1";
+  } else if (account === "ICICI") {
+    cardBodyColor = "#add8e6";
+  }
+
   return (
     <div className="col">
-      <div className="card border-warning border-2 mt-3">
+      <div className="card border-1 mt-3 mb-1">
         <div className="card-header">
           {formattedDate.toDateString()}
           <span className="float-end mx-2" onClick={handleExpenseDelete}>
@@ -26,7 +36,10 @@ function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
             </span>
           ) : null}
         </div>
-        <div className="card-body">
+        <div
+          className="card-body"
+          style={{ backgroundColor: `${cardBodyColor}` }}
+        >
           <h5 className="card-title">{title}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{description}</h6>
           <p className="card-text">

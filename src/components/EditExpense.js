@@ -94,6 +94,8 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
             value={title}
             onChange={titleChangeHandler}
             required
+            maxLength={20}
+            minLength={5}
           />
         </div>
         <div className="col-md-6">
@@ -120,6 +122,8 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
             value={description}
             onChange={descriptionChangeHandler}
             required
+            maxLength={30}
+            minLength={10}
           />
         </div>
         <div className="col-md-6">
@@ -166,11 +170,11 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
             required
           >
             <option defaultValue>Choose...</option>
-            <option>PAYTM</option>
-            <option>PHONEPE</option>
-            <option>DEBIT CARD</option>
-            <option>CASH</option>
-            <option>ONLINE</option>
+            <option>Paytm</option>
+            <option>Phonepe</option>
+            <option>Debit Card</option>
+            <option>Cash</option>
+            <option>Net Banking</option>
           </select>
         </div>
         <div className="col-12">

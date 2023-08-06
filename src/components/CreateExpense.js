@@ -45,7 +45,6 @@ function CreateExpense({ onCreate }) {
     }
 
     const expense = {
-      id: Math.round(Math.random() * 9999),
       title,
       inputDate,
       description,
@@ -53,7 +52,6 @@ function CreateExpense({ onCreate }) {
       account,
       paymentMode,
     };
-    console.log(expense);
     onCreate(expense);
     resetEveryField();
   };
@@ -93,6 +91,8 @@ function CreateExpense({ onCreate }) {
             value={title}
             onChange={titleChangeHandler}
             required
+            maxLength={20}
+            minLength={5}
           />
         </div>
         <div className="col-md-6">
@@ -119,6 +119,8 @@ function CreateExpense({ onCreate }) {
             value={description}
             onChange={descriptionChangeHandler}
             required
+            maxLength={30}
+            minLength={10}
           />
         </div>
         <div className="col-md-6">
@@ -165,11 +167,11 @@ function CreateExpense({ onCreate }) {
             required
           >
             <option defaultValue>Choose...</option>
-            <option>PAYTM</option>
-            <option>PHONEPE</option>
-            <option>DEBIT CARD</option>
-            <option>CASH</option>
-            <option>ONLINE</option>
+            <option>Paytm</option>
+            <option>Phonepe</option>
+            <option>Debit Card</option>
+            <option>Cash</option>
+            <option>Net Banking</option>
           </select>
         </div>
         <div className="col-12">

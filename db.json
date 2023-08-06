@@ -1,0 +1,238 @@
+{
+  "expenses": [
+    {
+      "title": "Groceries",
+      "inputDate": "2023-08-01",
+      "description": "Daily Groceries",
+      "amount": "299",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 1
+    },
+    {
+      "title": "Coconut water",
+      "inputDate": "2023-08-01",
+      "description": "for health",
+      "amount": "120",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 2
+    },
+    {
+      "title": "Groceries",
+      "inputDate": "2023-08-02",
+      "description": "Milk and other things",
+      "amount": "215",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 3
+    },
+    {
+      "title": "Groceries",
+      "inputDate": "2023-08-03",
+      "description": "Daily Groceries",
+      "amount": "66",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 4
+    },
+    {
+      "title": "Groceries",
+      "inputDate": "2023-08-04",
+      "description": "Milk and other things",
+      "amount": "66",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 5
+    },
+    {
+      "title": "Fruit and vegetables",
+      "inputDate": "2023-08-04",
+      "description": "Purchased from local shop",
+      "amount": "50",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 6
+    },
+    {
+      "title": "Fruit & Vegetables",
+      "inputDate": "2023-08-04",
+      "description": "purchased from local shop",
+      "amount": "40",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 7
+    },
+    {
+      "title": "Bummer Order",
+      "inputDate": "2023-08-04",
+      "description": "Daily use innerware purchased",
+      "amount": "883.3",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 8
+    },
+    {
+      "id": 9,
+      "title": "Groceris",
+      "inputDate": "2023-08-05",
+      "description": "Purchased from Reliance",
+      "amount": "303.3",
+      "account": "BOB",
+      "paymentMode": "Phonepe"
+    },
+    {
+      "title": "Bike Petrol",
+      "inputDate": "2023-08-05",
+      "description": "Monthly bike petrol purchase",
+      "amount": "220",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 10
+    },
+    {
+      "title": "Sadar Bazar Shopping",
+      "inputDate": "2023-08-05",
+      "description": "Shweta dupatta",
+      "amount": "200",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 11
+    },
+    {
+      "title": "Sadar Bazar Shopping",
+      "inputDate": "2023-08-05",
+      "description": "Hoseiry shopping",
+      "amount": "1140",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 12
+    },
+    {
+      "title": "Sadar Bazar Shopping",
+      "inputDate": "2023-08-05",
+      "description": "Nankhatai 100 gm",
+      "amount": "30",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 13
+    },
+    {
+      "title": "Mobile Expense",
+      "inputDate": "2023-08-01",
+      "description": "Airtel postpaid bill",
+      "amount": "1178.82",
+      "account": "SBI",
+      "paymentMode": "Paytm",
+      "id": 14
+    },
+    {
+      "title": "Fruit & Vegetables",
+      "inputDate": "2023-08-01",
+      "description": "All expensed added into one",
+      "amount": "340",
+      "account": "SBI",
+      "paymentMode": "Paytm",
+      "id": 15
+    },
+    {
+      "title": "Newspaper Bill",
+      "inputDate": "2023-08-02",
+      "description": "monthly subscription bill",
+      "amount": "160",
+      "account": "SBI",
+      "paymentMode": "Paytm",
+      "id": 16
+    },
+    {
+      "title": "Amul Icecream",
+      "inputDate": "2023-08-02",
+      "description": "purchased for shweta",
+      "amount": "80",
+      "account": "SBI",
+      "paymentMode": "Paytm",
+      "id": 17
+    },
+    {
+      "title": "Car cleaner",
+      "inputDate": "2023-08-03",
+      "description": "Paid to jahangir",
+      "amount": "400",
+      "account": "SBI",
+      "paymentMode": "Paytm",
+      "id": 18
+    },
+    {
+      "title": "Gas Cylinder",
+      "inputDate": "2023-08-03",
+      "description": "Paid to ganga gas service",
+      "amount": "1112",
+      "account": "SBI",
+      "paymentMode": "Paytm",
+      "id": 19
+    },
+    {
+      "title": "House Rent",
+      "inputDate": "2023-08-01",
+      "description": "Rent paid for gurgaon house",
+      "amount": "18000",
+      "account": "ICICI",
+      "paymentMode": "Net Banking",
+      "id": 20
+    },
+    {
+      "title": "Sujata Juicer",
+      "inputDate": "2023-08-04",
+      "description": "purchased from flipkart sale",
+      "amount": "5098",
+      "account": "ICICI",
+      "paymentMode": "Net Banking",
+      "id": 21
+    },
+    {
+      "title": "Gas Cylinder Tip",
+      "inputDate": "2023-08-03",
+      "description": "Tip given to cylinder wala",
+      "amount": "20",
+      "account": "CASH",
+      "paymentMode": "Cash",
+      "id": 22
+    },
+    {
+      "title": "Shweta Pocket Money",
+      "inputDate": "2023-08-04",
+      "description": "Given for first week",
+      "amount": "1000",
+      "account": "CASH",
+      "paymentMode": "Cash",
+      "id": 23
+    },
+    {
+      "title": "Shweta Choodi",
+      "inputDate": "2023-08-04",
+      "description": "Choodi purchased",
+      "amount": "60",
+      "account": "CASH",
+      "paymentMode": "Cash",
+      "id": 24
+    },
+    {
+      "title": "Groceries",
+      "inputDate": "2023-08-06",
+      "description": "Milk and Mishri",
+      "amount": "81",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 25
+    },
+    {
+      "title": "Food & Entertainment",
+      "inputDate": "2023-08-06",
+      "description": "Sandwich from Om sweets",
+      "amount": "126",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 26
+    }
+  ]
+}
