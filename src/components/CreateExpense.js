@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 function CreateExpense({ onCreate }) {
-  const [title, setTitle] = useState("");
+  const [expenseType, setExpenseType] = useState("");
   const [inputDate, setInputDate] = useState("");
   const [description, setDescription] = useState("");
   const [amount, setAmount] = useState("");
   const [account, setAccount] = useState("");
   const [paymentMode, setPaymentMode] = useState("");
 
-  const titleChangeHandler = (e) => {
-    setTitle(e.target.value);
+  const expenseTypeChangeHandler = (e) => {
+    setExpenseType(e.target.value);
   };
 
   const inputDateChangeHandler = (e) => {
@@ -45,7 +45,7 @@ function CreateExpense({ onCreate }) {
     }
 
     const expense = {
-      title,
+      expenseType,
       inputDate,
       description,
       amount,
@@ -62,7 +62,7 @@ function CreateExpense({ onCreate }) {
   };
 
   const resetEveryField = () => {
-    setTitle("");
+    setExpenseType("");
     setInputDate("");
     setDescription("");
     setAmount("");
@@ -81,19 +81,26 @@ function CreateExpense({ onCreate }) {
           <h4>Add Expense</h4>
         </div>
         <div className="col-md-6">
-          <label htmlFor="title" className="form-label">
-            Title
+          <label htmlFor="account" className="form-label">
+            Expense Type
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            value={title}
-            onChange={titleChangeHandler}
+          <select
+            id="account"
+            className="form-select"
+            value={expenseType}
+            onChange={expenseTypeChangeHandler}
             required
-            maxLength={20}
-            minLength={5}
-          />
+          >
+            <option defaultValue>Choose...</option>
+            <option>Monthly Expense</option>
+            <option>Daily Expense</option>
+            <option>Food Or Travel</option>
+            <option>Essential Expense</option>
+            <option>Shopping</option>
+            <option>Investment</option>
+            <option>Health And Medical</option>
+            <option>Others</option>
+          </select>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputDate" className="form-label">
@@ -108,7 +115,7 @@ function CreateExpense({ onCreate }) {
             required
           />
         </div>
-        <div className="col-12">
+        <div className="col-md-6">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -136,7 +143,7 @@ function CreateExpense({ onCreate }) {
             required
           />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="account" className="form-label">
             Account
           </label>
@@ -155,7 +162,7 @@ function CreateExpense({ onCreate }) {
             <option>CASH</option>
           </select>
         </div>
-        <div className="col-md-2">
+        <div className="col-md-6">
           <label htmlFor="paymentMode" className="form-label">
             Payment Mode
           </label>

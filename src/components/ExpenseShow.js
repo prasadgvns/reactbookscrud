@@ -1,6 +1,13 @@
 function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
-  const { id, title, inputDate, description, amount, account, paymentMode } =
-    expense;
+  const {
+    id,
+    expenseType,
+    inputDate,
+    description,
+    amount,
+    account,
+    paymentMode,
+  } = expense;
 
   let formattedDate = new Date(inputDate);
 
@@ -14,12 +21,22 @@ function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
 
   let cardBodyColor;
 
-  if (account === "SBI") {
-    cardBodyColor = "#fdf5e6";
-  } else if (account === "BOB") {
-    cardBodyColor = "#aaf0d1";
-  } else if (account === "ICICI") {
-    cardBodyColor = "#add8e6";
+  if (expenseType === "Daily Expense") {
+    cardBodyColor = "#EAECEE";
+  } else if (expenseType === "Monthly Expense") {
+    cardBodyColor = "#F9EBEA";
+  } else if (expenseType === "Food or Travel") {
+    cardBodyColor = "#FEF9E7";
+  } else if (expenseType === "Essential Expense") {
+    cardBodyColor = "#FBEEE6";
+  } else if (expenseType === "Shopping") {
+    cardBodyColor = "#D6EAF8";
+  } else if (expenseType === "Health And Medical") {
+    cardBodyColor = "#FEF9E7";
+  } else if (expenseType === "Others") {
+    cardBodyColor = "#E8DAEF";
+  } else {
+    cardBodyColor = "#FEF9E7";
   }
 
   return (
@@ -40,7 +57,7 @@ function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
           className="card-body"
           style={{ backgroundColor: `${cardBodyColor}` }}
         >
-          <h5 className="card-title">{title}</h5>
+          <h5 className="card-title">{expenseType}</h5>
           <h6 className="card-subtitle mb-2 text-muted">{description}</h6>
           <p className="card-text">
             {amount} {account} {paymentMode}

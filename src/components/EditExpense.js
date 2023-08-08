@@ -1,15 +1,15 @@
 import { useState } from "react";
 
 function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
-  const [title, setTitle] = useState(expenseToEdit.title);
+  const [expenseType, setExpenseType] = useState(expenseToEdit.expenseType);
   const [inputDate, setInputDate] = useState(expenseToEdit.inputDate);
   const [description, setDescription] = useState(expenseToEdit.description);
   const [amount, setAmount] = useState(expenseToEdit.amount);
   const [account, setAccount] = useState(expenseToEdit.account);
   const [paymentMode, setPaymentMode] = useState(expenseToEdit.paymentMode);
 
-  const titleChangeHandler = (e) => {
-    setTitle(e.target.value);
+  const expenseTypeChangeHandler = (e) => {
+    setExpenseType(e.target.value);
   };
 
   const inputDateChangeHandler = (e) => {
@@ -46,7 +46,7 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
 
     const expense = {
       id: expenseToEdit.id,
-      title,
+      expenseType,
       inputDate,
       description,
       amount,
@@ -64,7 +64,7 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
   };
 
   const resetEveryField = () => {
-    setTitle("");
+    setExpenseType("");
     setInputDate("");
     setDescription("");
     setAmount("");
@@ -85,18 +85,25 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
         </div>
         <div className="col-md-6">
           <label htmlFor="title" className="form-label">
-            Title
+            Expense Type
           </label>
-          <input
-            type="text"
-            className="form-control"
-            id="title"
-            value={title}
-            onChange={titleChangeHandler}
+          <select
+            id="account"
+            className="form-select"
+            value={expenseType}
+            onChange={expenseTypeChangeHandler}
             required
-            maxLength={20}
-            minLength={5}
-          />
+          >
+            <option defaultValue>Choose...</option>
+            <option>Monthly Expense</option>
+            <option>Daily Expense</option>
+            <option>Food Or Travel</option>
+            <option>Essential Expense</option>
+            <option>Shopping</option>
+            <option>Investment</option>
+            <option>Health And Medical</option>
+            <option>Others</option>
+          </select>
         </div>
         <div className="col-md-6">
           <label htmlFor="inputDate" className="form-label">
@@ -111,7 +118,7 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
             required
           />
         </div>
-        <div className="col-12">
+        <div className="col-md-6">
           <label htmlFor="description" className="form-label">
             Description
           </label>
@@ -139,7 +146,7 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
             required
           />
         </div>
-        <div className="col-md-4">
+        <div className="col-md-6">
           <label htmlFor="account" className="form-label">
             Account
           </label>
@@ -158,7 +165,7 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
             <option>CASH</option>
           </select>
         </div>
-        <div className="col-md-2">
+        <div className="col-md-6">
           <label htmlFor="paymentMode" className="form-label">
             Payment Mode
           </label>

@@ -9,21 +9,77 @@ function App() {
   const [expenses, setExpenses] = useState([]);
   const [enableEdit, setEnableEdit] = useState(false);
   const [expenseToEdit, setExpenseToEdit] = useState({});
-  const [totalExpense, setTotalExpense] = useState(0);
+  const [expenseTypes, setExpenseTypes] = useState({
+    monthlyExpense: 0,
+    dailyExpense: 0,
+    foodOrTravelExpense: 0,
+    essentialExpense: 0,
+    shoppingExpense: 0,
+    investmentExpense: 0,
+    healthAndMedicalExpense: 0,
+    othersExpense: 0,
+    totalExpense: 0,
+  });
+
+  const getAllExpenseTypes = (expenses) => {
+    let monthlyExpense = 0;
+    let dailyExpense = 0;
+    let foodOrTravelExpense = 0;
+    let essentialExpense = 0;
+    let shoppingExpense = 0;
+    let investmentExpense = 0;
+    let healthAndMedicalExpense = 0;
+    let othersExpense = 0;
+    let totalExpense = 0;
+
+    for (let expense of expenses) {
+      if (expense.expenseType === "Monthly Expense") {
+        monthlyExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Daily Expense") {
+        dailyExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Food Or Travel") {
+        foodOrTravelExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Essential Expense") {
+        essentialExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Shopping") {
+        shoppingExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Investment") {
+        investmentExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Health And Medical") {
+        healthAndMedicalExpense += parseFloat(expense.amount);
+      } else if (expense.expenseType === "Others") {
+        othersExpense += parseFloat(expense.amount);
+      }
+    }
+
+    totalExpense =
+      monthlyExpense +
+      dailyExpense +
+      foodOrTravelExpense +
+      essentialExpense +
+      shoppingExpense +
+      investmentExpense +
+      healthAndMedicalExpense +
+      othersExpense;
+
+    return {
+      monthlyExpense,
+      dailyExpense,
+      foodOrTravelExpense,
+      essentialExpense,
+      shoppingExpense,
+      investmentExpense,
+      healthAndMedicalExpense,
+      othersExpense,
+      totalExpense,
+    };
+  };
 
   const fetchExpenses = async () => {
     const response = await axios.get("http://localhost:3001/expenses");
+    const updateExpenseTypes = getAllExpenseTypes(response.data);
     setExpenses(response.data);
-    const totalSum = calculateTotalExpense(response.data);
-    setTotalExpense(totalSum);
-  };
-
-  const calculateTotalExpense = (expenses) => {
-    let sum = 0;
-    for (let expense of expenses) {
-      sum += parseFloat(expense.amount);
-    }
-    return sum;
+    setExpenseTypes(updateExpenseTypes);
   };
 
   useEffect(() => {
@@ -43,9 +99,9 @@ function App() {
     });
 
     const updatedExpense = [...expenses, response.data];
+    const updateExpenseTypes = getAllExpenseTypes(updatedExpense);
     setExpenses(updatedExpense);
-    const updatedTotalExpense = totalExpense + parseFloat(expense.amount);
-    setTotalExpense(updatedTotalExpense);
+    setExpenseTypes(updateExpenseTypes);
   };
 
   // const deleteExpenseById = (id) => {
@@ -63,15 +119,11 @@ function App() {
       return expense.id !== id;
     });
 
-    const deletedExpense = expenses.find((exp) => {
-      return exp.id === id;
-    });
-
-    const updatedTotalExpense =
-      totalExpense - parseFloat(deletedExpense.amount);
+    const updateExpenseTypes = getAllExpenseTypes(updatedExpense);
 
     setExpenses(updatedExpense);
-    setTotalExpense(updatedTotalExpense);
+
+    setExpenseTypes(updateExpenseTypes);
   };
 
   const getExpenseById = (id) => {
@@ -106,9 +158,11 @@ function App() {
       return ex;
     });
 
-    const totalSum = calculateTotalExpense(updatedExpense);
-    setTotalExpense(totalSum);
+    const updateExpenseTypes = getAllExpenseTypes(updatedExpense);
+
     setExpenses(updatedExpense);
+
+    setExpenseTypes(updateExpenseTypes);
   };
 
   return (
@@ -120,7 +174,9 @@ function App() {
         expenseToEdit={expenseToEdit}
         editExpense={editExpense}
       />
-      {expenses.length > 0 && <ExpenseTotal totalExpense={totalExpense} />}
+
+      {expenses.length > 0 && <ExpenseTotal expenseTypes={expenseTypes} />}
+
       <ExpenseList
         expenses={expenses}
         enableEdit={enableEdit}
