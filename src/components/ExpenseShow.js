@@ -29,7 +29,7 @@ function ExpenseShow({ expense }) {
 
   return (
     <div className="col">
-      <div className="card border-1 mt-3 mb-1">
+      <div className="card border-3 mt-3 mb-1 text-dark">
         <div className="card-header">
           {formattedDate.toDateString()}
           <span className="float-end mx-2" onClick={handleExpenseDelete}>

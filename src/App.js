@@ -3,6 +3,7 @@ import { useContext, useEffect } from "react";
 import ExpenseFormHandler from "./components/ExpenseFormHandler";
 import ExpenseList from "./components/ExpenseList";
 import ExpenseTotal from "./components/ExpenseTotalCard";
+import Header from "./components/Header";
 
 import ExpenseContext from "./context/expense";
 
@@ -14,11 +15,14 @@ function App() {
   }, [stableFetchExpenses]);
 
   return (
-    <div className="container">
-      <ExpenseFormHandler />
-      {expenses.length > 0 && <ExpenseTotal />}
-      <ExpenseList />
-    </div>
+    <>
+      <Header />
+      <div className="container">
+        <ExpenseFormHandler />
+        {expenses.length > 0 && <ExpenseTotal />}
+        <ExpenseList />
+      </div>
+    </>
   );
 }
 
