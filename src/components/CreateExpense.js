@@ -1,6 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import ExpenseContext from "../context/expense";
 
-function CreateExpense({ onCreate }) {
+function CreateExpense() {
+  const { createExpense } = useContext(ExpenseContext);
+
   const [expenseType, setExpenseType] = useState("");
   const [inputDate, setInputDate] = useState("");
   const [description, setDescription] = useState("");
@@ -52,7 +55,7 @@ function CreateExpense({ onCreate }) {
       account,
       paymentMode,
     };
-    onCreate(expense);
+    createExpense(expense);
     resetEveryField();
   };
 

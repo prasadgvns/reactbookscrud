@@ -1,27 +1,27 @@
-const getColorByTitle = (title) => {
-  if (title === "DAILY EXPENSE") {
-    return "#EAECEE";
+const getColorByExpense = (title) => {
+  if (title.includes("MONTHLY")) {
+    return "#e6fff5";
   }
-  if (title === "MONTHLY EXPENSE") {
-    return "#F9EBEA";
+  if (title.includes("DAILY")) {
+    return "#ffffe6";
   }
-  if (title === "SHOPPING EXPENSE") {
-    return "#D6EAF8";
+  if (title.includes("FOOD")) {
+    return "#e6faff";
   }
-  if (title === "OTHERS EXPENSE") {
-    return "#E8DAEF";
+  if (title.includes("ESSENTIAL")) {
+    return "#ffeecc";
   }
-  if (title === "FOOD OR TRAVEL EXPENSE") {
-    return "#FEF9E7";
+  if (title.includes("SHOPPING")) {
+    return "#ffe6ff";
   }
-  if (title === "HEALTH AND MEDICAL EXPENSE") {
-    return "#F8F9F9";
+  if (title.includes("HEALTH")) {
+    return "#fff5e6";
   }
-  if (title === "ESSENTIAL EXPENSE") {
-    return "#FBEEE6";
+  if (title.includes("OTHERS")) {
+    return "#f2e6d9";
   }
-  if (title === "TOTAL EXPENSE") return "#E5E7E9";
-  return "#BFC9CA";
+
+  if (title.includes("TOTAL")) return "#ffd6cc";
 };
 
-export { getColorByTitle };
+export { getColorByExpense };

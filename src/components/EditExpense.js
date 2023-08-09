@@ -1,6 +1,11 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
-function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
+import ExpenseContext from "../context/expense";
+
+function EditExpense() {
+  const { expenseToEdit, editExpense, setEnableEdit } =
+    useContext(ExpenseContext);
+
   const [expenseType, setExpenseType] = useState(expenseToEdit.expenseType);
   const [inputDate, setInputDate] = useState(expenseToEdit.inputDate);
   const [description, setDescription] = useState(expenseToEdit.description);
@@ -53,7 +58,6 @@ function EditExpense({ setEnableEdit, expenseToEdit, editExpense }) {
       account,
       paymentMode,
     };
-    //console.log(expense);
     editExpense(expense);
     resetEveryField();
   };

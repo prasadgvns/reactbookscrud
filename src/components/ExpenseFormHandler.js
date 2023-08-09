@@ -1,23 +1,14 @@
+import { useContext } from "react";
+
 import CreateExpense from "./CreateExpense";
 import EditExpense from "./EditExpense";
 
-function ExpenseFormHandler({
-  onCreate,
-  enableEdit,
-  setEnableEdit,
-  expenseToEdit,
-  editExpense,
-}) {
-  if (enableEdit && expenseToEdit)
-    return (
-      <EditExpense
-        enableEdit={enableEdit}
-        setEnableEdit={setEnableEdit}
-        expenseToEdit={expenseToEdit}
-        editExpense={editExpense}
-      />
-    );
-  return <CreateExpense onCreate={onCreate} />;
+import ExpenseContext from "../context/expense";
+
+function ExpenseFormHandler({}) {
+  const { enableEdit, expenseToEdit } = useContext(ExpenseContext);
+  if (enableEdit && expenseToEdit) return <EditExpense />;
+  return <CreateExpense />;
 }
 
 export default ExpenseFormHandler;

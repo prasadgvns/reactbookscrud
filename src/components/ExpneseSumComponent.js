@@ -1,5 +1,5 @@
 import RupeeSvg from "../svg/rupee";
-import { getColorByTitle } from "../utility/common";
+import { getColorByExpense } from "../utility/common";
 
 function ExpenseSumComponent({ expenseTitle, expenseAmount }) {
   const getUpdatedTitle = (title) => {
@@ -16,7 +16,7 @@ function ExpenseSumComponent({ expenseTitle, expenseAmount }) {
   };
 
   let newTitle = getUpdatedTitle(expenseTitle);
-  let rowColor = getColorByTitle(newTitle);
+  let rowColor = getColorByExpense(newTitle);
 
   if (expenseAmount === 0) return null;
 

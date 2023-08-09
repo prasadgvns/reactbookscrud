@@ -1,4 +1,10 @@
-function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
+import { useContext } from "react";
+import ExpenseContext from "../context/expense";
+import { getColorByExpense } from "../utility/common";
+
+function ExpenseShow({ expense }) {
+  const { deleteExpenseById, getExpenseById, enableEdit } =
+    useContext(ExpenseContext);
   const {
     id,
     expenseType,
@@ -12,32 +18,14 @@ function ExpenseShow({ expense, onDelete, onSelect, enableEdit }) {
   let formattedDate = new Date(inputDate);
 
   const handleExpenseDelete = () => {
-    onDelete(id);
+    deleteExpenseById(id);
   };
 
   const handleExpenseSelect = () => {
-    onSelect(id);
+    getExpenseById(id);
   };
 
-  let cardBodyColor;
-
-  if (expenseType === "Daily Expense") {
-    cardBodyColor = "#EAECEE";
-  } else if (expenseType === "Monthly Expense") {
-    cardBodyColor = "#F9EBEA";
-  } else if (expenseType === "Food or Travel") {
-    cardBodyColor = "#FEF9E7";
-  } else if (expenseType === "Essential Expense") {
-    cardBodyColor = "#FBEEE6";
-  } else if (expenseType === "Shopping") {
-    cardBodyColor = "#D6EAF8";
-  } else if (expenseType === "Health And Medical") {
-    cardBodyColor = "#FEF9E7";
-  } else if (expenseType === "Others") {
-    cardBodyColor = "#E8DAEF";
-  } else {
-    cardBodyColor = "#FEF9E7";
-  }
+  let cardBodyColor = getColorByExpense(expenseType.toUpperCase());
 
   return (
     <div className="col">
