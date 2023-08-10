@@ -81,7 +81,9 @@ function CreateExpense() {
         onReset={resetCreateExpenseHandler}
       >
         <div className="pt-3">
-          <h4>Add Expense</h4>
+          <h4>
+            <i className="bi bi-bag-plus"></i> Add Expense
+          </h4>
         </div>
         <div className="col-md-6">
           <label htmlFor="account" className="form-label">

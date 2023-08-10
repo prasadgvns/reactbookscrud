@@ -9,6 +9,7 @@
     "axios": "^1.4.0",
     "bootstrap": "^5.3.1",
     "bootstrap-icons": "^1.10.5",
+    "cross-env": "^7.0.3",
     "json-server": "^0.17.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -17,7 +18,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "server":"json-server -p 3001 --watch db.json",
+    "server": "json-server -p 3001 --watch db.json",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

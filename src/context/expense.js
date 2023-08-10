@@ -20,7 +20,7 @@ function Provider({ children }) {
   });
 
   const fetchExpenses = async () => {
-    const response = await axios.get("http://localhost:3001/expenses");
+    const response = await axios.get("http://localhost:3002/expenses");
     const updateExpenseTypes = getAllExpenseTypes(response.data);
     setExpenses(response.data);
     setExpenseTypes(updateExpenseTypes);
@@ -29,7 +29,7 @@ function Provider({ children }) {
   const stableFetchExpenses = useCallback(fetchExpenses, []);
 
   const createExpense = async (expense) => {
-    const response = await axios.post("http://localhost:3001/expenses", {
+    const response = await axios.post("http://localhost:3002/expenses", {
       ...expense,
     });
 
@@ -40,7 +40,7 @@ function Provider({ children }) {
   };
 
   const deleteExpenseById = async (id) => {
-    await axios.delete(`http://localhost:3001/expenses/${id}`);
+    await axios.delete(`http://localhost:3002/expenses/${id}`);
 
     const updatedExpense = expenses.filter((expense) => {
       return expense.id !== id;
@@ -63,7 +63,7 @@ function Provider({ children }) {
 
   const editExpense = async (expense) => {
     const id = expense.id;
-    const response = await axios.put(`http://localhost:3001/expenses/${id}`, {
+    const response = await axios.put(`http://localhost:3002/expenses/${id}`, {
       ...expense,
     });
 

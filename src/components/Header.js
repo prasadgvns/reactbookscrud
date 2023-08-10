@@ -6,7 +6,7 @@ function Header() {
     >
       <div className="container">
         <h3>
-          <i class="bi bi-wallet2"></i> Expense Tracker
+          <i className="bi bi-wallet2"></i> Expense Tracker
         </h3>
       </div>
     </nav>

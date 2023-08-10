@@ -5,7 +5,7 @@ import EditExpense from "./EditExpense";
 
 import ExpenseContext from "../context/expense";
 
-function ExpenseFormHandler({}) {
+function ExpenseFormHandler() {
   const { enableEdit, expenseToEdit } = useContext(ExpenseContext);
   if (enableEdit && expenseToEdit) return <EditExpense />;
   return <CreateExpense />;

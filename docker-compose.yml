@@ -1,0 +1,17 @@
+version: '3'
+services:
+  json-server:
+    image: vimagick/json-server
+    command: -H 0.0.0.0 -p 3002 -w db.json
+    ports:
+      - "3002:3002"
+    volumes:
+    - ./data:/data
+  expensetrakcer:
+    build:
+      context: .
+    ports:
+      - "3003:3000"
+    volumes:
+      - /usr/app/node_modules
+      - .:/usr/app
