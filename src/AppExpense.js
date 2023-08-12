@@ -1,5 +1,4 @@
 import { useContext, useEffect } from "react";
-import BalanceList from "./components/BalanceList";
 
 import ExpenseFormHandler from "./components/ExpenseFormHandler";
 import ExpenseList from "./components/ExpenseList";
@@ -9,8 +8,7 @@ import Header from "./components/Header";
 import ExpenseContext from "./context/expense";
 
 function App() {
-  const { expenses, stableFetchExpenses, accounts } =
-    useContext(ExpenseContext);
+  const { expenses, stableFetchExpenses } = useContext(ExpenseContext);
 
   useEffect(() => {
     stableFetchExpenses();
@@ -20,14 +18,7 @@ function App() {
     <>
       <Header />
       <div className="container">
-        <div className="row">
-          <div className="col">
-            <ExpenseFormHandler />
-          </div>
-          <div className="col">
-            <BalanceList accounts={accounts} />
-          </div>
-        </div>
+        <ExpenseFormHandler />
         {expenses.length > 0 && <ExpenseTotal />}
         <ExpenseList />
       </div>

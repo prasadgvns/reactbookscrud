@@ -135,6 +135,17 @@ function Provider({ children }) {
     };
   };
 
+  const getExpensedAmount = (accountName) => {
+    let totalExpense = 0;
+
+    for (let expense of expenses) {
+      if (expense.account === accountName) {
+        totalExpense += parseFloat(expense.amount);
+      }
+    }
+    return totalExpense.toFixed(2);
+  };
+
   const valueToShare = {
     createExpense,
     fetchExpenses,
@@ -147,6 +158,14 @@ function Provider({ children }) {
     expenses,
     deleteExpenseById,
     getExpenseById,
+    accounts: [
+      { name: "HDFC", balance: 293420.45 },
+      { name: "ICICI", balance: 226167.82 },
+      { name: "SBI", balance: 6419.52 },
+      { name: "BOB", balance: 17107.79 },
+      { name: "CASH", balance: 5680 },
+    ],
+    getExpensedAmount,
   };
 
   return (

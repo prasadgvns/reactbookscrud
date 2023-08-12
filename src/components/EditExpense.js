@@ -85,7 +85,9 @@ function EditExpense() {
         onReset={resetEditExpenseHandler}
       >
         <div className="pt-3">
-          <h4>Edit Expense</h4>
+          <h4>
+            <i className="bi bi-pencil-square"></i> Edit Expense
+          </h4>
         </div>
         <div className="col-md-6">
           <label htmlFor="title" className="form-label">

@@ -172,13 +172,13 @@
       "id": 19
     },
     {
-      "expenseType": "Food Or Travel",
+      "id": 20,
+      "expenseType": "Health And Medical",
       "inputDate": "2023-08-01",
       "description": "Coconut Water",
       "amount": "120",
       "account": "BOB",
-      "paymentMode": "Phonepe",
-      "id": 20
+      "paymentMode": "Phonepe"
     },
     {
       "expenseType": "Daily Expense",
@@ -467,6 +467,141 @@
       "account": "SBI",
       "paymentMode": "Paytm",
       "id": 52
+    },
+    {
+      "id": 53,
+      "expenseType": "Food Or Travel",
+      "inputDate": "2023-08-10",
+      "description": "Lunch from vaishno dhaba",
+      "amount": "154",
+      "account": "BOB",
+      "paymentMode": "Phonepe"
+    },
+    {
+      "expenseType": "Food Or Travel",
+      "inputDate": "2023-08-10",
+      "description": "Lassi and Rabri from bikaner",
+      "amount": "374",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 54
+    },
+    {
+      "expenseType": "Daily Expense",
+      "inputDate": "2023-08-11",
+      "description": "Milk Cheese and bread",
+      "amount": "190",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 55
+    },
+    {
+      "expenseType": "Daily Expense",
+      "inputDate": "2023-08-11",
+      "description": "Fuel Varnasi",
+      "amount": "200",
+      "account": "HDFC",
+      "paymentMode": "Debit Card",
+      "id": 56
+    },
+    {
+      "expenseType": "Health And Medical",
+      "inputDate": "2023-08-07",
+      "description": "For Shweta Treatment",
+      "amount": "15000",
+      "account": "HDFC",
+      "paymentMode": "Net Banking",
+      "id": 57
+    },
+    {
+      "expenseType": "Daily Expense",
+      "inputDate": "2023-08-11",
+      "description": "Transfer to paytm wallet",
+      "amount": "500",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 58
+    },
+    {
+      "expenseType": "Health And Medical",
+      "inputDate": "2023-08-11",
+      "description": "Shweta Ultrasound",
+      "amount": "2000",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 59
+    },
+    {
+      "expenseType": "Food Or Travel",
+      "inputDate": "2023-08-11",
+      "description": "Cold drink and water bottle",
+      "amount": "60",
+      "account": "BOB",
+      "paymentMode": "Paytm",
+      "id": 60
+    },
+    {
+      "expenseType": "Daily Expense",
+      "inputDate": "2023-08-11",
+      "description": "Fruits & Vegetables",
+      "amount": "280",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 61
+    },
+    {
+      "expenseType": "Daily Expense",
+      "inputDate": "2023-08-11",
+      "description": "Milk only in groceries",
+      "amount": "66",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 62
+    },
+    {
+      "expenseType": "Daily Expense",
+      "inputDate": "2023-08-12",
+      "description": "Metro card recharge",
+      "amount": "200",
+      "account": "CASH",
+      "paymentMode": "Cash",
+      "id": 63
+    },
+    {
+      "expenseType": "Food Or Travel",
+      "inputDate": "2023-08-12",
+      "description": "Shikanji at rajouri",
+      "amount": "60",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 65
+    },
+    {
+      "expenseType": "Health And Medical",
+      "inputDate": "2023-08-12",
+      "description": "Shweta Medicine",
+      "amount": "260",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 66
+    },
+    {
+      "expenseType": "Essential Expense",
+      "inputDate": "2023-08-12",
+      "description": "My Watch Servicing",
+      "amount": "300",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 67
+    },
+    {
+      "expenseType": "Food Or Travel",
+      "inputDate": "2023-08-12",
+      "description": "Lunch at bikaner rajouri",
+      "amount": "556",
+      "account": "BOB",
+      "paymentMode": "Phonepe",
+      "id": 68
     }
   ]
 }
