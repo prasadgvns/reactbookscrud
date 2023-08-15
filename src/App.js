@@ -33,6 +33,11 @@ function App() {
         </div>
         {expenses.length > 0 && <ExpenseTotal />}
         <FilterExpense />
+        {expenses.length === 0 && (
+          <div>
+            <h2>No Expense Found</h2>
+          </div>
+        )}
         <ExpenseList />
       </div>
     </>
