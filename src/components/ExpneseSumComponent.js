@@ -28,7 +28,7 @@ function ExpenseSumComponent({ expenseTitle, expenseAmount }) {
         <span>
           <RupeeSvg />
         </span>
-        {expenseAmount}
+        {expenseAmount.toFixed(2)}
       </div>
     </li>
   );

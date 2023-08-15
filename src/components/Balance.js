@@ -1,14 +1,11 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import ExpenseContext from "../context/expense";
 
 import RupeeSvg from "../svg/rupee";
 
 function Balance({ account, currentIndex }) {
-  console.log(currentIndex, typeof currentIndex);
   const { name, balance } = account;
   const { getExpensedAmount } = useContext(ExpenseContext);
-
-  const [index, setIndex] = useState(0);
 
   const totalExpense = getExpensedAmount(name);
 
@@ -25,7 +22,7 @@ function Balance({ account, currentIndex }) {
           aria-expanded="true"
           aria-controls={`collapse-${currentIndex}`}
         >
-          {name} Details
+          <strong>{name} Details</strong>
         </button>
       </h2>
       <div
@@ -34,7 +31,7 @@ function Balance({ account, currentIndex }) {
         aria-labelledby="headingOne"
         data-bs-parent="#accordionExample"
       >
-        <div className="card">
+        <div className="card bg-body-secondary">
           <div className="card-body">
             <p className="card-text">
               <strong>Total Balance :</strong>

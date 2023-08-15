@@ -6,7 +6,6 @@ import ExpenseContext from "../context/expense";
 
 function ExpenseTotal() {
   const { expenseTypes } = useContext(ExpenseContext);
-
   const renderExpenseSumComponents = Object.keys(expenseTypes).map((key) => {
     return (
       <ExpenseSumComponent

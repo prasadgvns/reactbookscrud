@@ -19,6 +19,9 @@ function Provider({ children }) {
     totalExpense: 0,
   });
 
+  const [isError, setIsError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+
   const fetchExpenses = async () => {
     const response = await axios.get("http://localhost:3002/expenses");
     const updateExpenseTypes = getAllExpenseTypes(response.data);
@@ -93,21 +96,21 @@ function Provider({ children }) {
     let totalExpense = 0;
 
     for (let expense of expenses) {
-      if (expense.expenseType === "Monthly Expense") {
+      if (expense.expenseType === "MONTHLY EXPENSE") {
         monthlyExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Daily Expense") {
+      } else if (expense.expenseType === "DAILY EXPENSE") {
         dailyExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Food Or Travel") {
+      } else if (expense.expenseType === "FOOD OR TRAVEL") {
         foodOrTravelExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Essential Expense") {
+      } else if (expense.expenseType === "ESSENTIAL EXPENSE") {
         essentialExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Shopping") {
+      } else if (expense.expenseType === "SHOPPING") {
         shoppingExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Investment") {
+      } else if (expense.expenseType === "INVESTMENT") {
         investmentExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Health And Medical") {
+      } else if (expense.expenseType === "HEALTH AND MEDICAL") {
         healthAndMedicalExpense += parseFloat(expense.amount);
-      } else if (expense.expenseType === "Others") {
+      } else if (expense.expenseType === "OTHERS") {
         othersExpense += parseFloat(expense.amount);
       }
     }
@@ -146,6 +149,19 @@ function Provider({ children }) {
     return totalExpense.toFixed(2);
   };
 
+  const filterExpense = async (expenseType) => {
+    const response = await axios.get("http://localhost:3002/expenses");
+    let tempExpenses = [];
+    if (expenseType === "Choose...") {
+      setExpenses(response.data);
+    } else {
+      tempExpenses = response.data.filter((ex) => {
+        return ex.expenseType === expenseType;
+      });
+      setExpenses(tempExpenses);
+    }
+  };
+
   const valueToShare = {
     createExpense,
     fetchExpenses,
@@ -166,6 +182,11 @@ function Provider({ children }) {
       { name: "CASH", balance: 5680 },
     ],
     getExpensedAmount,
+    isError,
+    setIsError,
+    errorMessage,
+    setErrorMessage,
+    filterExpense,
   };
 
   return (

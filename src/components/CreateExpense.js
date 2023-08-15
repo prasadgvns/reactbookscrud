@@ -1,8 +1,17 @@
 import { useState, useContext } from "react";
 import ExpenseContext from "../context/expense";
 
+import MandatoryIcon from "./MandatoryIcon";
+import SelectBox from "./SelectBox";
+import {
+  expenseTypesArray,
+  accountsArray,
+  paymentModeArray,
+} from "../utility/common";
+
 function CreateExpense() {
-  const { createExpense } = useContext(ExpenseContext);
+  const { createExpense, setIsError, setErrorMessage } =
+    useContext(ExpenseContext);
 
   const [expenseType, setExpenseType] = useState("");
   const [inputDate, setInputDate] = useState("");
@@ -12,40 +21,65 @@ function CreateExpense() {
   const [paymentMode, setPaymentMode] = useState("");
 
   const expenseTypeChangeHandler = (e) => {
+    setIsError(false);
     setExpenseType(e.target.value);
   };
 
   const inputDateChangeHandler = (e) => {
+    setIsError(false);
     setInputDate(e.target.value);
   };
 
   const descriptionChangeHandler = (e) => {
+    setIsError(false);
     setDescription(e.target.value);
   };
 
   const amountChangeHandler = (e) => {
+    setIsError(false);
     setAmount(e.target.value);
   };
 
   const accountChangeHandler = (e) => {
+    setIsError(false);
     setAccount(e.target.value);
   };
 
   const paymentModeChangeHandler = (e) => {
+    setIsError(false);
     setPaymentMode(e.target.value);
   };
 
+  const createErrorMessage = () => {
+    if (!expenseType || expenseType === "Choose...")
+      return "ExpenseType Is Mandatory";
+    if (!inputDate) return "Date Is Mandatory";
+    if (!description) return "Description Is Mandatory";
+    if (!amount) return "Amount Is Mandatory";
+    if (!account || account === "Choose...") return "Account Is Mandatory";
+    if (!paymentMode || paymentMode === "Choose...")
+      return "Payment Mode Is Mandatory";
+  };
   const submitCreateExpenseHandler = (e) => {
     e.preventDefault();
-    if (!account) {
-      alert("Select account");
+    if (
+      !expenseType ||
+      expenseType === "Choose..." ||
+      !inputDate ||
+      !description ||
+      !amount ||
+      !account ||
+      account === "Choose..." ||
+      !paymentMode ||
+      paymentMode === "Choose..."
+    ) {
+      setIsError(true);
+      const errorMessage = createErrorMessage();
+      setErrorMessage(errorMessage);
       return;
     }
 
-    if (!paymentMode) {
-      alert("Select payment mode");
-      return;
-    }
+    setIsError(false);
 
     const expense = {
       expenseType,
@@ -65,6 +99,7 @@ function CreateExpense() {
   };
 
   const resetEveryField = () => {
+    setIsError(false);
     setExpenseType("");
     setInputDate("");
     setDescription("");
@@ -86,30 +121,21 @@ function CreateExpense() {
           </h4>
         </div>
         <div className="col-md-6">
-          <label htmlFor="account" className="form-label">
+          <label htmlFor="expenseType" className="form-label">
             Expense Type
+            <MandatoryIcon />
           </label>
-          <select
-            id="account"
-            className="form-select"
+          <SelectBox
+            id="expenseType"
             value={expenseType}
             onChange={expenseTypeChangeHandler}
-            required
-          >
-            <option defaultValue>Choose...</option>
-            <option>Monthly Expense</option>
-            <option>Daily Expense</option>
-            <option>Food Or Travel</option>
-            <option>Essential Expense</option>
-            <option>Shopping</option>
-            <option>Investment</option>
-            <option>Health And Medical</option>
-            <option>Others</option>
-          </select>
+            options={expenseTypesArray}
+          />
         </div>
         <div className="col-md-6">
           <label htmlFor="inputDate" className="form-label">
             Date
+            <MandatoryIcon />
           </label>
           <input
             type="date"
@@ -117,12 +143,12 @@ function CreateExpense() {
             id="inputDate"
             value={inputDate}
             onChange={inputDateChangeHandler}
-            required
           />
         </div>
         <div className="col-md-6">
           <label htmlFor="description" className="form-label">
             Description
+            <MandatoryIcon />
           </label>
           <input
             type="text"
@@ -130,7 +156,6 @@ function CreateExpense() {
             id="description"
             value={description}
             onChange={descriptionChangeHandler}
-            required
             maxLength={30}
             minLength={10}
           />
@@ -138,6 +163,7 @@ function CreateExpense() {
         <div className="col-md-6">
           <label htmlFor="amount" className="form-label">
             Amount
+            <MandatoryIcon />
           </label>
           <input
             type="number"
@@ -145,46 +171,31 @@ function CreateExpense() {
             id="amount"
             value={amount}
             onChange={amountChangeHandler}
-            required
           />
         </div>
         <div className="col-md-6">
           <label htmlFor="account" className="form-label">
             Account
+            <MandatoryIcon />
           </label>
-          <select
+          <SelectBox
             id="account"
-            className="form-select"
             value={account}
             onChange={accountChangeHandler}
-            required
-          >
-            <option defaultValue>Choose...</option>
-            <option>HDFC</option>
-            <option>ICICI</option>
-            <option>SBI</option>
-            <option>BOB</option>
-            <option>CASH</option>
-          </select>
+            options={accountsArray}
+          />
         </div>
         <div className="col-md-6">
           <label htmlFor="paymentMode" className="form-label">
             Payment Mode
+            <MandatoryIcon />
           </label>
-          <select
+          <SelectBox
             id="paymentMode"
-            className="form-select"
             value={paymentMode}
             onChange={paymentModeChangeHandler}
-            required
-          >
-            <option defaultValue>Choose...</option>
-            <option>Paytm</option>
-            <option>Phonepe</option>
-            <option>Debit Card</option>
-            <option>Cash</option>
-            <option>Net Banking</option>
-          </select>
+            options={paymentModeArray}
+          />
         </div>
         <div className="col-12">
           <button type="submit" className="btn btn-primary m-1">
